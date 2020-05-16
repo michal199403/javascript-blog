@@ -37,7 +37,7 @@ const titleClickHandler = function (event) {
   /* add class 'active' to the correct article */
   targetArticle.classList.add('active');
 
-}
+};
 
 
 /* Generate title link */
@@ -64,7 +64,7 @@ function generateTitleLinks() {
 
     /* find the title element */
     /* get the title from the title element */
-    const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+    const articleTitle = article.querySelector(optTitleSelector).innerHTML; //Ta linijka wykonuje 2 założenia algorytmu (znajduję oraz przypisuję).
 
     /* create HTML of the link */
     const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
@@ -73,7 +73,6 @@ function generateTitleLinks() {
     html = html + linkHTML;
   }
   titleList.innerHTML = html;
-  console.log('HTML link: ', html);
 
   const links = document.querySelectorAll('.titles a');
 
