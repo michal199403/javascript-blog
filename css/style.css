@@ -108,4 +108,39 @@ body {
 .post-tags p {
   margin: 0 10px 0 0;
 }
+
+.tag-size-5 {
+  font-size: 200%;
+  color: #5f0f40;
+}
+
+.tag-size-4 {
+  font-size: 175%;
+  color: #be6511;
+}
+
+.tag-size-3 {
+  font-size: 150%;
+  color: #fd0633;
+}
+
+.tag-size-2 {
+  font-size: 125%;
+  color: #1e4f5c;
+}
+
+.tag-size-1 {
+  font-size: 100%;
+  color: #30a004;
+}
+
+.tags li {
+  display: inline-block;
+  padding: 3px;
+}
+
+.tags li a {
+  text-decoration: none;
+  font-weight: bold;
+}
 /*# sourceMappingURL=style.css.map */

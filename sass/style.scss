@@ -123,3 +123,33 @@ body {
     margin: 0 10px 0 0;
   }
 }
+
+// Clouds //
+.tag-size-5 {
+  font-size: 200%;
+  color: rgb(95, 15, 64);
+}
+.tag-size-4 {
+font-size: 175%;
+color: rgb(190, 101, 17);
+}
+.tag-size-3 {
+font-size: 150%;
+color: rgb(253, 6, 51);
+}
+.tag-size-2 {
+font-size: 125%;
+color: rgb(30, 79, 92);
+}
+.tag-size-1 {
+font-size: 100%;
+color: rgb(48, 160, 4);
+}
+.tags li {
+  display: inline-block;
+  padding: 3px;
+  a {
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
