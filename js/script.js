@@ -108,10 +108,9 @@ function calculateAuthorsParams(authors) {
     max: '0',
     min: '999999'
   };
-  console.log('authors:', authors);
   /* START loop: for each author in authors */
   for (let author in authors) {
-    console.log(author + ' is used ' + authors[author] + ' times ');
+    //console.log(author + ' is used ' + authors[author] + ' times ');
     if (authors[author] > params.max) {
       params.max = authors[author];
     } if (authors[author] < params.min) {
@@ -263,8 +262,6 @@ function generateAuthors() {
     let html = '';
     /* get authors from atrribute */
     const articleAuthor = author.getAttribute('data-author');
-    console.log('Article author: ', articleAuthor);
-    const articleAuthorArray = articleAuthor.toString();
     /* generate HTML of choosen link */
     const linkHTML = '<p><a href="#author-' + articleAuthor + '"> by ' + articleAuthor + '</a></p>';
     //console.log('Genereted link: ', linkHTML);
@@ -273,25 +270,20 @@ function generateAuthors() {
     /* insert HTML of all the links into author wrapper */
     authorWrapper.insertAdjacentHTML('beforeend', html);
     /* push authors in obj */
-    console.log('article author array:', articleAuthorArray);
-    for (let author of articleAuthorArray) {
-      if (!allAuthors[author]) {
-        allAuthors[author] = 1;
-      } else {
-        allAuthors[author]++;
-      }
-      console.log('After let author', allAuthors);
-      /* END loop: for every authors */
+    if (!allAuthors[articleAuthor]) {
+      allAuthors[articleAuthor] = 1;
+    } else {
+      allAuthors[articleAuthor]++;
     }
+    /* END loop: for every authors */
   }
   /* find list of authors in right column */
   const authorList = document.querySelector('.authors');
   const authorsParams = calculateAuthorsParams(allAuthors);
-  console.log('author params: ', authorsParams);
   let allAuthorsHTML = '';
   for (let author in allAuthors) {
     const authorLinkHtml = calculateAuthorClass(allAuthors[author], authorsParams);
-    allAuthorsHTML += '<li><a class=' + authorLinkHtml + ' href="#author-' + author + '</a></li>';
+    allAuthorsHTML += '<li><a class=' + authorLinkHtml + ' href="#author-' + author + '">' + author + '</a></li>';
   }
   authorList.innerHTML = allAuthorsHTML;
 }

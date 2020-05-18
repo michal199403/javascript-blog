@@ -134,12 +134,12 @@ body {
   color: #30a004;
 }
 
-.tags li {
+.tags li, .authors li {
   display: inline-block;
   padding: 3px;
 }
 
-.tags li a {
+.tags li a, .authors li a {
   text-decoration: none;
   font-weight: bold;
 }
