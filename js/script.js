@@ -266,15 +266,15 @@ addClickListenersToTags();
 function generateAuthors() {
   /* find all authors */
   let allAuthors = {};
-  /* START loop: for every authors */
-  const authors = document.querySelectorAll(opt.articleSelector);
-  for (let author of authors) {
+  /* START loop: for every article */
+  const articles = document.querySelectorAll(opt.articleSelector);
+  for (let article of articles) {
     /* find authors wrapper */
-    const authorWrapper = author.querySelector(opt.articleAuthorSelector);
+    const authorWrapper = article.querySelector(opt.articleAuthorSelector);
     /* make html string for author */
     let html = '';
     /* get authors from atrribute */
-    const articleAuthor = author.getAttribute('data-author');
+    const articleAuthor = article.getAttribute('data-author');
     /* generate HTML of choosen link */
     const linkHTML = '<p><a href="#author-' + articleAuthor + '"> by ' + articleAuthor + '</a></p>';
     //console.log('Genereted link: ', linkHTML);
