@@ -173,10 +173,11 @@ function generateTags() {
     const articleTagsArray = articleTags.split(' ');
     /* START LOOP: for each tag */
     for (let tag of articleTagsArray) {
+      const tagHTMLData = { id: tag, title: tag };
+      const tagHTML = templates.tagLink(tagHTMLData);
+      html += tagHTML;
       /* generate HTML of the link */
-      const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li>';
       /* add generated code to html variable */
-      html = html + linkHTML;
       /* [new] chek if this link is NOT already in allTags */
       if (!allTags[tag]) {
         /* [new] add tag to allTags object */
@@ -200,10 +201,6 @@ function generateTags() {
   const allTagsData = { tags: [] };
   /* [new] START loop: for each tag in allTags */
   for (let tag in allTags) {
-    //const tagLinkHTML = calculateTagClass(allTags[tag], tagsParams);
-    /*[new] generate code of link and add it to allTagsHTML */
-    //allTagsHTML += '<li><a class=' + tagLinkHTML + ' href="#tag-' + tag + '">' + tag + '</a></li>';
-    //allTagsHTML += tagLinkHTML;
     /* Templates */
     allTagsData.tags.push({
       tag: tag,
@@ -211,10 +208,8 @@ function generateTags() {
       className: calculateTagClass(allTags[tag], tagsParams)
     });
     /* END loop: for each tag in allTags */
-
   }
   /* [new] add HTML from allTagsHTML to tagList */
-  //tagList.innerHTML = allTagsHTML;
   /* Templates */
   tagList.innerHTML = templates.tagCloudLink(allTagsData);
 }
@@ -303,7 +298,7 @@ function generateAuthors() {
   /* find list of authors in right column */
   const authorList = document.querySelector('.authors');
   const authorsParams = calculateAuthorsParams(allAuthors);
-  let allAuthorsHTML = '';
+  //let allAuthorsHTML = '';
   const allAuthorsData = { authors: [] };
   for (let articleAuthor in allAuthors) {
     //const authorLinkHtml = calculateAuthorClass(allAuthors[author], authorsParams);
